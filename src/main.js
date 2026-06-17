@@ -1,34 +1,34 @@
-import Game from "./scenes/Game.js";
+import MenuScene from './scenes/MenuScene.js';
+import Level1Scene from './scenes/Level1Scene.js';
+import Level2Scene from './scenes/Level2Scene.js';
+import Level3Scene from './scenes/Level3Scene.js';
+import GameOverScene from './scenes/GameOverScene.js';
+import VictoryScene from './scenes/VictoryScene.js';
 
-// Create a new Phaser config object
 const config = {
   type: Phaser.AUTO,
-  width: 720,
-  height: 720,
+  width: 800,
+  height: 600,
+  backgroundColor: '#2d5a1b',
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    min: {
-      width: 800,
-      height: 600,
-    },
-    max: {
-      width: 1600,
-      height: 1200,
-    },
   },
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
-      gravity: { y: 200 },
-      debug: true,
+      gravity: { y: 0 },
+      debug: false,
     },
   },
-  // List of scenes to load
-  // Only the first scene will be shown
-  // Remember to import the scene before adding it to the list
-  scene: [Game],
+  scene: [
+    MenuScene,
+    Level1Scene,
+    Level2Scene,
+    Level3Scene,
+    GameOverScene,
+    VictoryScene,
+  ],
 };
 
-// Create a new Phaser game instance
-window.game = new Phaser.Game(config);
+new Phaser.Game(config);
