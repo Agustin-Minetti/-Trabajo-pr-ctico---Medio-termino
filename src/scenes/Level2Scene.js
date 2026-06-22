@@ -74,11 +74,10 @@ export default class Level2Scene extends Phaser.Scene {
 
   createCorralZone() {
     // Centro del mapa — ajustá si el corral quedó en otra posición
-    this.corralX1 = 620;
-    this.corralY1 = 200;
-    this.corralX2 = 770;
-    this.corralY2 = 360;
-
+    this.corralX1 = 540;
+    this.corralY1 = 170;
+    this.corralX2 = 690;
+    this.corralY2 = 320;
     this.add.text(
       (this.corralX1 + this.corralX2) / 2,
       this.corralY1 - 14,
