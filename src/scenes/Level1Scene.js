@@ -1,7 +1,7 @@
 import ScoreManager from '../utils/ScoreManager.js';
 
-const SHEEP_COUNT = 5;
-const SHEEP_NEEDED = 4;
+const SHEEP_COUNT = 4;
+const SHEEP_NEEDED = 3;
 const TIME_LIMIT = 60;
 const LIGHTNING_INTERVAL = 8000;
 

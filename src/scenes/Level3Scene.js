@@ -1,7 +1,7 @@
 import ScoreManager from '../utils/ScoreManager.js';
 
 const SHEEP_COUNT = 9;
-const SHEEP_NEEDED = 6;
+const SHEEP_NEEDED = 5;
 const TIME_LIMIT = 90;
 const LIGHTNING_INTERVAL = 3000;
 
@@ -80,10 +80,10 @@ export default class Level3Scene extends Phaser.Scene {
 
   createCorralZone() {
     // Esquina inferior izquierda — ajustá según tu mapa
-    this.corralX1 = 155;
-    this.corralY1 = 390;
-    this.corralX2 = 310;
-    this.corralY2 = 530;
+    this.corralX1 = 96;
+    this.corralY1 = 368;
+    this.corralX2 = 208;
+    this.corralY2 = 480;
 
     this.add.text(
       (this.corralX1 + this.corralX2) / 2,
