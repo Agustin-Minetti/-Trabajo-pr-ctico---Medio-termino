@@ -3,7 +3,7 @@ import ScoreManager from '../utils/ScoreManager.js';
 const SHEEP_COUNT = 4;
 const SHEEP_NEEDED = 3;
 const TIME_LIMIT = 60;
-const LIGHTNING_INTERVAL = 8000;
+const LIGHTNING_INTERVAL = 5000;
 
 export default class Level1Scene extends Phaser.Scene {
   constructor() { super('Level1Scene'); }
@@ -236,13 +236,23 @@ export default class Level1Scene extends Phaser.Scene {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 24) {
         const pushDist = dist || 1;
-        sheep.vx = (dx / pushDist) * 90;
-        sheep.vy = (dy / pushDist) * 90;
+        sheep.vx = (dx / pushDist) * 100;
+        sheep.vy = (dy / pushDist) * 100;
+
         if (this.isInCorral(sheep.x, sheep.y)) {
-          ScoreManager.addScore(-30);
-          this.showFloatingText(sheep.x, sheep.y, '-30 😬', '#ff4444');
+          if (!sheep.biteCooldown) {
+            sheep.biteCooldown = true;
+            ScoreManager.addScore(-25);
+            this.showFloatingText(sheep.x, sheep.y, '-25 😬', '#ff4444');
+            this.time.delayedCall(2000, () => { sheep.biteCooldown = false; });
+          }
         } else {
-          this.showFloatingText(sheep.x, sheep.y, '¡Ay!', '#ffffff');
+          if (!sheep.biteCooldown) {
+            sheep.biteCooldown = true;
+            ScoreManager.addScore(-50);
+            this.showFloatingText(sheep.x, sheep.y, '-50 😣', '#ffaa00');
+            this.time.delayedCall(2000, () => { sheep.biteCooldown = false; });
+          }
         }
       }
     }
@@ -300,7 +310,8 @@ export default class Level1Scene extends Phaser.Scene {
       this.mapWidth, this.mapHeight, 0xffff00, 0.3
     ).setDepth(15);
     this.time.delayedCall(100, () => flash.destroy());
-    this.add.text(strikeX, strikeY, '⚡', { fontSize: '32px' }).setOrigin(0.5).setDepth(10);
+    const bolt = this.add.text(strikeX, strikeY, '⚡', { fontSize: '32px' }).setOrigin(0.5).setDepth(10);
+    this.time.delayedCall(800, () => bolt.destroy());
 
     for (const sheep of this.sheepGroup) {
       if (!sheep.saved) sheep.sprite.clearTint();
