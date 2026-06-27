@@ -118,8 +118,7 @@ El Lobo es el único NPC no controlado por el jugador en el último nivel.
 ---
 
 ## 🌐 Link al juego publicado
-
-> *(Completar con el link de GitHub Pages una vez desplegado)*
+(https://agustin-minetti.github.io/-Trabajo-pr-ctico---Medio-termino/)
 
 ---
 
@@ -138,7 +137,7 @@ git clone https://github.com/Agustin-Minetti/-Trabajo-pr-ctico---Medio-termino.g
 
 ## 🛠️ Tecnologías utilizadas
 
-- [Phaser 3](https://phaser.io/) — motor de videojuegos HTML5
+- [Phaser 4](https://phaser.io/) — motor de videojuegos HTML5
 - JavaScript ES6+
 - [Tiled](https://www.mapeditor.org/) — editor de mapas
 - Visual Studio Code + Live Server
